@@ -32,6 +32,11 @@ Your app is ready to be deployed!
 
 ##Screenshots
 
+<p float="left">
+  <img src="1.png" width="300" />
+  <img src="2.png" width="300" /> 
+  <img src="3.png" width="300" />
+</p>
     <div align="center">
     <img src="1.png"  />
     </div>
@@ -56,4 +61,9 @@ Your app is ready to be deployed!
     <img src="6.png"/>
     </div>
   
+### Tech Stack of this Project:
 
+
+* Backend: Node JS
+* Front-end: React JS
+* Dependencies: Guardian News API , NYTimes News API, CommentBox.io API, Twitter API, Facebook API
