@@ -5,6 +5,10 @@ It was deployed on https://news2056934.wl.r.appspot.com/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Synopsis
+
+This project was completed as a part of my coursework for the course CSCI 571: Web Technologies at the University of Southern California, Spring 2020 under Prof. Papa.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -61,5 +65,5 @@ Your app is ready to be deployed!
 * Dependencies: Guardian News API , NYTimes News API, CommentBox.io API, Twitter API, Facebook API
 
 
-<h3 align="center"><b>Developed with :heart: by <a href="https://github.com/Shraddha2104">Shraddha Shaligram</a>.</b></h1>
+<h3 align="center"><b>Developed by <a href="https://github.com/Shraddha2104">Shraddha Shaligram</a>.</b></h1>
 
