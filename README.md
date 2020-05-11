@@ -32,23 +32,23 @@ Your app is ready to be deployed!
 
 ##Screenshots
 
-<h2>first</h2>
+<h2>Guardian News</h2>
 <img src="1.png"  />
 
-<h2>first</h2>
+<h2>NYTimes News</h2>
 <img src="2.png"  />
 
-<h2>first</h2>
+<h2>Detailed Version of news</h2>
 <img src="3.png"  />
 
-<h2>first</h2>
+<h2>Comment Box </h2>
 <img src="4.png"  />
 
-<h2>first</h2>
+<h2>Bookmarking functionality</h2>
 <img src="5.png"  />
 
 
-<h2>first</h2>
+<h2>Sharing news via social media platforms such as Twitter, Facebook and Email</h2>
 <img src="6.png"  />
   
   
