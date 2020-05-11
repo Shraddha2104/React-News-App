@@ -32,7 +32,11 @@ Your app is ready to be deployed!
 
 ##Screenshots
 <p>
-    <img src="1.png"  height="290" />
-    <img src="2.png"  height="290"/>
+    <img src="1.png"  />
+    <img src="2.png"/>
+    <img src="3.png"/>
+    <img src="4.png"/>
+    <img src="5.png"/>
+    <img src="6.png"/>
   
 </p>
