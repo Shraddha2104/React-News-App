@@ -59,3 +59,7 @@ Your app is ready to be deployed!
 * Backend: Node JS
 * Front-end: React JS
 * Dependencies: Guardian News API , NYTimes News API, CommentBox.io API, Twitter API, Facebook API
+
+
+<h3 align="center"><b>Developed with :heart: by <a href="https://github.com/Shraddha2104">Shraddha Shaligram</a>.</b></h1>
+
