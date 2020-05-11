@@ -1,6 +1,8 @@
 # React-News-App
 A React + Node powered news app using Guardian &amp; NYTimes News API to render trending news
 
+It was deployed on https://news2056934.wl.r.appspot.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
