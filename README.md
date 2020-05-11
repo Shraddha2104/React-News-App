@@ -31,15 +31,15 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 ##Screenshots
-<p>
+
     <div align="center">
     <img src="1.png"  />
     </div>
-    <div align="center">
-    </div>
+    
     <div align="center">
     <img src="2.png"/>
-    >/div>
+    </div>
+    
     <div align="center">
     <img src="3.png"/>
     </div>
@@ -56,4 +56,4 @@ Your app is ready to be deployed!
     <img src="6.png"/>
     </div>
   
-</p>
+
