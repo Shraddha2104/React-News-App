@@ -9,45 +9,41 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This project was completed as a part of my coursework for the course CSCI 571: Web Technologies at the University of Southern California, Spring 2020 under Prof. Marco Papa.
 
-## Available Scripts
+## Repository Structure
 
-In the project directory, you can run:
+* **hw8-description.pdf** : contains the assignment description and the functionalities
+* **newsapp** : contains the react code
 
-### `npm start`
+## Install
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    $ git clone https://github.com/Shraddha2104/React-News-App
+    $ cd React-News-App
+    $ create-react-app .
+    $ npm install
+    $ npm start
+    
+    
+Now open [http://localhost:8080](http://localhost:8080).
 
 ## Screenshots
 
-<h2>Guardian News</h2>
+<h3>Guardian News</h3>
 <img src="1.png"  />
 
-<h2>NYTimes News</h2>
+<h3>NYTimes News</h3>
 <img src="2.png"  />
 
-<h2>Detailed Version of news</h2>
+<h3>Detailed Version of news</h3>
 <img src="3.png"  />
 
-<h2>Comment Box </h2>
+<h3>Comment Box </h3>
 <img src="4.png"  />
 
-<h2>Bookmarking functionality</h2>
+<h3>Bookmarking functionality</h3>
 <img src="5.png"  />
 
 
-<h2>Sharing news via social media platforms such as Twitter, Facebook and Email</h2>
+<h3>Sharing news via social media platforms such as Twitter, Facebook and Email</h3>
 <img src="6.png"  />
   
   
@@ -59,6 +55,7 @@ Your app is ready to be deployed!
 * Front-end: React JS
 * Dependencies: Guardian News API , NYTimes News API, CommentBox.io API, Twitter API, Facebook API
 
+***Here is a link to a video showing the complete functioning:*** [https://www.youtube.com/watch?v=IowBaIi6fjE&feature=youtu.be](https://www.youtube.com/watch?v=IowBaIi6fjE&feature=youtu.be) 
 
 <h3 align="center"><b>Developed by <a href="https://github.com/Shraddha2104">Shraddha Shaligram</a>.</b></h1>
 
