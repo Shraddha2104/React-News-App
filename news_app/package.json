@@ -1,0 +1,64 @@
+{
+  "name": "news-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ishawnwang/withunmounted": "^1.0.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "commentbox.io": "^2.0.0",
+    "glamor": "^2.20.40",
+    "glamorous": "^5.0.0",
+    "jquery": "^3.4.1",
+    "react": "^16.13.0",
+    "react-bootstrap": "^1.0.0-beta.17",
+    "react-dom": "^16.13.0",
+    "react-element-to-jsx-string": "^14.3.1",
+    "react-expand-collapse": "^0.2.0",
+    "react-foundation": "^0.9.6",
+    "react-icons": "^3.9.0",
+    "react-layout-components": "^3.0.6",
+    "react-native-togglebox": "^1.0.3",
+    "react-responsive": "^8.0.3",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.0",
+    "react-scroll-to": "^3.0.0-beta.6",
+    "react-select": "^2.0.0-beta.7",
+    "react-share": "^4.1.0",
+    "react-spinners": "^0.8.1",
+    "react-switch": "^5.0.1",
+    "react-text-truncate": "^0.16.0",
+    "react-toastify": "^5.5.0",
+    "react-tooltip": "^4.1.2",
+    "semantic-ui-react": "^0.88.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@iconify/icons-ion": "^1.0.10",
+    "@iconify/react": "^1.1.3",
+    "@types/react-select": "^3.0.11"
+  }
+}
