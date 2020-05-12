@@ -3,10 +3,10 @@ import axios from 'axios';
 import Share from './Share'
 import BounceLoader from 'react-spinners/BounceLoader';
 import { Redirect } from 'react-router-dom';
-import { Row, Column } from 'react-foundation';
-
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Detailed from './Detailed'
+
+//rendering business component
 class Business extends Component {
 
   constructor(props) {
@@ -25,10 +25,8 @@ class Business extends Component {
     this.renderDet1 = this.renderDet1.bind(this);
   }
   linktoArticles(id) {
-    // console.log("in link")
+    
     localStorage.setItem('id', id);
-
-    // console.log(id)
     this.setState({
       showComponent: true,
       showCards: false,
@@ -36,11 +34,10 @@ class Business extends Component {
     });
   }
   linktoArticles1(id, sectionId) {
-    // console.log("in link")
-    // console.log(sectionId)
+    
     localStorage.setItem('id', id);
     localStorage.setItem('sectionId', sectionId);
-    // console.log(id)
+    
     this.setState({
       showComponent: true,
       showCards: false,
@@ -49,12 +46,8 @@ class Business extends Component {
   }
   renderDet(category) {
 
-    console.log('detail' )
+   
     var retrievedObject = localStorage.getItem('id');
-    // console.log('localll')
-    
-    // console.log(retrievedObject)
-    console.log(this.props.selectedResult)
     this.props.func(false);
     if (this.state.showComponent)
       return (<Router>
@@ -63,13 +56,11 @@ class Business extends Component {
       </Router>);
   }
   renderDet1(category) {
-    // console.log('detail' + this.state)
+    
     var retrievedObject = localStorage.getItem('id');
     var sectionId = localStorage.getItem('sectionId');
     this.props.func(false);
-    
-    // console.log('localll')
-    // console.log(retrievedObject)
+
     
     if (this.state.showComponent)
       return (<Router>
@@ -78,9 +69,9 @@ class Business extends Component {
       </Router>);
   }
   componentDidMount() {
-   // this.props.handler();
-   this.props.func(true);
-  //  this.props.callback();
+  
+    this.props.func(true);
+  
     this.setState({ isLoading: true });
     //nyt
     axios.get('https://usc6352156.wl.r.appspot.com//business-nyt', {
@@ -137,16 +128,14 @@ class Business extends Component {
         borderRadius: '5px',
         padding: '5px',
         backgroundColor: 'white',
-        margin:'0 auto',
-        // marginTop:'5px',
-        // verticalAlign:'middle',
-        // outline: '2px solid #CCC',
+        margin: '0 auto',
+     
         boxShadow: '0 0 5px 0 #C6C4C4',
 
       };
-      var count=0;
+      var count = 0;
       for (var i = 0; i < g_results1.length; i++) {
-        if(count==10)
+        if (count == 10)
           break;
         var sectionId = g_results1[i].sectionId;
         var color = setSectionColor(sectionId);
@@ -197,25 +186,25 @@ class Business extends Component {
           else
             img_url = assets[assets_len - 1].file;
           final_articles.push(
-          <div className="fluid-container containerer" key={i} onClick={function (id) {
-            return function () {
-              this.linktoArticles(id);
-            }.bind(this)
-          }.bind(this)(id)}>
-            <div class="row" >
-            <div class="col-lg-3 col-12  padder">
-            <img src={img_url}  style={img_styles}/></div>
-            <div class="col-lg-9 col-12 ">
-            <div className="container__text">
-              <p className="title"><b><i>{g_results1[i].webTitle}</i></b>
-                <Share title={g_results1[i].webTitle} url={webUrl} />
-              </p>
-              <p className="description">{short}</p>
-              <p className="date "><i>{pdate}</i></p><span className="badge badge-pill badge-primary " style={section_style}><b>{sectionId}</b></span></div></div></div></div>);
-         
+            <div className="fluid-container containerer" key={i} onClick={function (id) {
+              return function () {
+                this.linktoArticles(id);
+              }.bind(this)
+            }.bind(this)(id)}>
+              <div class="row" >
+                <div class="col-lg-3 col-12  padder">
+                  <img src={img_url} style={img_styles} /></div>
+                <div class="col-lg-9 col-12 ">
+                  <div className="container__text">
+                    <p className="title"><b><i>{g_results1[i].webTitle}</i></b>
+                      <Share title={g_results1[i].webTitle} url={webUrl} />
+                    </p>
+                    <p className="description">{short}</p>
+                    <p className="date "><i>{pdate}</i></p><span className="badge badge-pill badge-primary " style={section_style}><b>{sectionId}</b></span></div></div></div></div>);
+
         }
       }
-// 
+      // 
       if (isLoading) {
 
 
@@ -226,35 +215,24 @@ class Business extends Component {
         </div>);
       }
       if (this.state.showCards)
-      return (
-        <div>
+        return (
+          <div>
 
-          <div className="guardian-news">{final_articles}<br></br> </div>
-        </div>
-      );
-    else
-      return (
-        <div>
-          {this.renderDet("guardian")}
+            <div className="guardian-news">{final_articles}<br></br> </div>
+          </div>
+        );
+      else
+        return (
+          <div>
+            {this.renderDet("guardian")}
 
-        </div>);
+          </div>);
 
 
     }
     else {
       let final_articles = []
-      // let img_styles = {
-      //   margin: '7px',
-      //   width: '20%',
-      //   height: '90%',
-      //   // maxWidth:'338px',
-      //   maxHeight: '228px',
-      //   borderRadius: '5px',
-      //   padding: '5px',
-      //   backgroundColor: 'white',
-      //   boxShadow: '0 0 5px 0 #ddd',
-
-      // };
+    
       let img_styles = {
         // margin: '7px',
         width: '100%',
@@ -262,19 +240,16 @@ class Business extends Component {
         borderRadius: '5px',
         padding: '5px',
         backgroundColor: 'white',
-        margin:'0 auto',
-        // marginTop:'5px',
-        // verticalAlign:'middle',
-        // outline: '2px solid #CCC',
+        margin: '0 auto',
         boxShadow: '0 0 5px 0 #C6C4C4',
 
       };
       let col = {
         width: '100%',
       }
-      var count=0;
+      var count = 0;
       for (var i = 0; i < g_results2.length; i++) {
-        if(count==10)
+        if (count == 10)
           break;
         var sectionId = g_results2[i].section;
         var url;
@@ -302,7 +277,7 @@ class Business extends Component {
 
           }
         }
-       
+
         else {
           section_style = {
 
@@ -323,35 +298,35 @@ class Business extends Component {
           <div className="fluid-container container" key={i} onClick={function (webUrl, sectionId) {
             return function () {
               this.linktoArticles1(webUrl, sectionId);
-  
+
             }.bind(this)
           }.bind(this)(webUrl, sectionId)}>
             <div class="row" >
-          <div class="col-lg-3 col-12  padder">
-            <img src={url}  style={img_styles}></img></div>
-            <div class="col-lg-9 col-12 ">
-            <div className="container__text" style={col}>
-              <p className="title"><b><i>{g_results2[i].title}</i></b>
-                <Share url={webUrl} title={g_results2[i].title} />
-              </p>
-              <p className="description">{g_results2[i].abstract}</p>
-              <p className="date"><i>{new_date}</i></p><span className="badge badge-pill badge-primary" style={section_style}><b>{sectionId}</b></span>
-            </div></div></div>
+              <div class="col-lg-3 col-12  padder">
+                <img src={url} style={img_styles}></img></div>
+              <div class="col-lg-9 col-12 ">
+                <div className="container__text" style={col}>
+                  <p className="title"><b><i>{g_results2[i].title}</i></b>
+                    <Share url={webUrl} title={g_results2[i].title} />
+                  </p>
+                  <p className="description">{g_results2[i].abstract}</p>
+                  <p className="date"><i>{new_date}</i></p><span className="badge badge-pill badge-primary" style={section_style}><b>{sectionId}</b></span>
+                </div></div></div>
           </div>)
       }
-     
+
       if (isLoading) {
         return (<div className="sweet-loading" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
           <BounceLoader
             size={40} color="#123ABC" /><br />
-         <h4><b>Loading</b></h4>
+          <h4><b>Loading</b></h4>
         </div>);
       }
-     
+
       if (this.state.showCards)
         return (
           <div>
-  
+
             <div className="nyt-news">{final_articles}<br></br> </div>
           </div>
         );
@@ -359,9 +334,9 @@ class Business extends Component {
         return (
           <div>
             {this.renderDet1("NYT")}
-  
+
           </div>);
-      
+
     }
   }
 };

@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Detailed from './Detailed'
 import 'react-toastify/dist/ReactToastify.css';
-
+//rendering bookmarks
 class Bookmark extends Component {
 
     constructor(props) {
@@ -20,7 +20,7 @@ class Bookmark extends Component {
             showComponent: false,
             showCards: true,
             category: 'guardian',
-            n_results:[],
+            n_results: [],
         };
         this.deleteBookmark = this.deleteBookmark.bind(this);
         this.linktoArticles = this.linktoArticles.bind(this);
@@ -30,22 +30,22 @@ class Bookmark extends Component {
         this.rendering = this.rendering.bind(this);
     }
 
-   
-    notify = (title) => {toast.dismiss();toast("Removing "+title, {delay:180,autoClose:2200,
-        
-        className: css({
-            background: "white !important",
-            color: "black",
-            textAlign: "left",
-            fontSize: "15px"
-        })
-    });
-}
-    linktoArticles(id, category) {
-        // console.log("in link")
-        localStorage.setItem('id', id);
 
-        // console.log(id)
+    notify = (title) => {
+        toast.dismiss(); toast("Removing " + title, {
+            delay: 180, autoClose: 2200,
+
+            className: css({
+                background: "white !important",
+                color: "black",
+                textAlign: "left",
+                fontSize: "15px"
+            })
+        });
+    }
+    linktoArticles(id, category) {
+       
+        localStorage.setItem('id', id);
         this.setState({
             showComponent: true,
             showCards: false,
@@ -54,11 +54,9 @@ class Bookmark extends Component {
         });
     }
     linktoArticles1(id, sectionId, category) {
-        // console.log("in link")
-        // console.log(sectionId)
+       
         localStorage.setItem('id', id);
         localStorage.setItem('sectionId', sectionId);
-        // console.log(id)
         this.setState({
             showComponent: true,
             showCards: false,
@@ -67,8 +65,6 @@ class Bookmark extends Component {
         });
     }
     renderDet(category) {
-        console.log('in render detail')
-
         var retrievedObject = localStorage.getItem('id');
 
         if (this.state.showComponent)
@@ -78,7 +74,7 @@ class Bookmark extends Component {
             </Router>);
     }
     renderDet1(category) {
-        console.log("in render det 1")
+       
         var retrievedObject = localStorage.getItem('id');
         var sectionId = localStorage.getItem('sectionId');
 
@@ -88,20 +84,18 @@ class Bookmark extends Component {
                 <Route path="/article" render={() => <Detailed id={retrievedObject} sectionId={sectionId} category={category} />} />
             </Router>);
     }
-    componentDidMount()
-    {
+    componentDidMount() {
         this.props.func(false);
     }
     rendering() {
-        console.log("in rendering")
-        console.log(this.state.category)
+        
         if (this.state.category == 'guardian')
             return this.renderDet('guardian');
         else
             return this.renderDet1('NYT');
     }
-    deleteBookmark(event,i) {
-           event.stopPropagation();
+    deleteBookmark(event, i) {
+        event.stopPropagation();
         event.nativeEvent.stopImmediatePropagation();
         if (localStorage) {
             var articles;
@@ -116,14 +110,13 @@ class Bookmark extends Component {
 
         }
         this.forceUpdate();
-        
+
     }
     render() {
-        console.log("in bookmarks")
-        //localStorage.clear();
+       
         var arr = localStorage.getItem('articles');
         var articles_list = JSON.parse(arr);
-        
+
         function setSectionColor(sectionId) {
             var color;
             if (sectionId == 'sport')
@@ -171,9 +164,7 @@ class Bookmark extends Component {
         }
         let final_articles = []
         if (articles_list != null) {
-            // console.log("in articles list")
-            // console.log(articles_list);
-            console.log("in not null")
+           
             this.state.isLoading = false;
             for (var i = 0; i < articles_list.length; i++) {
 
@@ -195,8 +186,8 @@ class Bookmark extends Component {
                     if (sectionId == 'technology' || sectionId == 'sport') {
                         section_style = {
                             // width: '70px',
-                            paddingRight:'2%',
-                            paddingLeft:'2%',
+                            paddingRight: '2%',
+                            paddingLeft: '2%',
                             fontSize: '12px',
                             backgroundColor: color,
                             marginRight: '10px',
@@ -212,8 +203,8 @@ class Bookmark extends Component {
                     else {
                         section_style = {
                             //width: '70px',
-                            paddingRight:'2%',
-                            paddingLeft:'2%',
+                            paddingRight: '2%',
+                            paddingLeft: '2%',
                             // maxWidth:'100px',
                             fontSize: '12px',
                             backgroundColor: color,
@@ -239,12 +230,12 @@ class Bookmark extends Component {
                                 <div className="card1-title" style={carder}><b><i>{title}</i></b><Share url={webUrl} title={title} category={"GUARDIAN"} />
                                     <IoMdTrash className="trash" onClick={function (i) {
                                         return function (event) {
-                                            this.deleteBookmark(event,i);
+                                            this.deleteBookmark(event, i);
                                             this.notify(title);
                                             //this.stopPropagation();
                                         }.bind(this)
                                     }.bind(this)(i)} />
-                                    
+
                                 </div>
                                 {/* <div className="image-container"> */}
                                 <img className="card-img-top img-fluid" src={img_url} alt="Card image cap" />
@@ -294,31 +285,29 @@ class Bookmark extends Component {
                         section_style = {
                             // width: '70px',
                             fontSize: '12px',
-                            paddingRight:'2%',
-                            paddingLeft:'2%',
+                            paddingRight: '2%',
+                            paddingLeft: '2%',
                             backgroundColor: color,
                             marginRight: '10px',
                             textAlign: 'center',
                             float: 'left',
                             marginLeft: '12%',
                             color: 'black',
-                            // display: 'inline-block',
+                           
                             borderRadius: '5px',
 
                         }
                     }
                     else {
                         section_style = {
-                            //width: '70px',
-                            // maxWidth:'100px',
-                            paddingRight:'2%',
-                            paddingLeft:'2%',
+                          
+                            paddingRight: '2%',
+                            paddingLeft: '2%',
                             fontSize: '12px',
                             backgroundColor: color,
                             marginRight: '10px',
                             textAlign: 'center',
                             float: 'left',
-                            // display: 'inline-block',
                             marginLeft: '12%',
                             color: 'white',
                             borderRadius: '5px',
@@ -336,11 +325,11 @@ class Bookmark extends Component {
                                 <div className="card1-title" style={carder}><b><i>{articles_list[i].obj.docs[0].headline.main}</i></b>
                                     <Share url={webUrl} title={articles_list[i].obj.docs[0].headline.main} category={"NYTimes"} /><IoMdTrash className="trash" onClick={function (i) {
                                         return function (event) {
-                                            this.deleteBookmark(event,i);
+                                            this.deleteBookmark(event, i);
                                             this.notify(articles_list[i].obj.docs[0].headline.main);
                                         }.bind(this)
                                     }.bind(this)(i)} />
-                                    
+
                                 </div>
                                 <img className="card-img-top img-fluid" src={img_url} alt="Card image cap" />
                                 <div className="card-block" >
@@ -355,7 +344,7 @@ class Bookmark extends Component {
 
                 }
             }
-            
+
             if (this.state.isLoading) {
                 return (<div className="class-loading">
                     <BounceLoader css="display: block;margin: 0 auto;border-color: red;position:absolute;top:50%;left:50%"
@@ -384,13 +373,13 @@ class Bookmark extends Component {
                     </div>);
 
         }
-        else{
-            return(<div><h3><b><center>You have no saved articles</center></b></h3></div>)
+        else {
+            return (<div><h3><b><center>You have no saved articles</center></b></h3></div>)
         }
 
 
 
-      
+
 
     }
 }

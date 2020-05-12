@@ -2,7 +2,7 @@ import React from "react";
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import { ScrollTo } from "react-scroll-to";
-
+//toggle detailed sections
 class ToggleBox extends React.Component {
 
     constructor(props) {
@@ -43,13 +43,13 @@ class ToggleBox extends React.Component {
                 {opened
                     ? (<div><div class="boxContent" ref={this.myRef}>
                         {children}
-                    </div> 
-                    {/* <FaChevronUp className="boxTitle" onClick={() => { this.scroll(this.myRef); this.toggleBox(); }} /> */}
-                    <div>< ScrollTo >
-                        {({ scroll }) => (
-                        <FaChevronUp className="boxTitle" onClick={() => {scroll({ x: 0, y: 0,smooth: true }) ;this.toggleBox();}}/>
-                    )
-                        }</ScrollTo></div>
+                    </div>
+                        
+                        <div>< ScrollTo >
+                            {({ scroll }) => (
+                                <FaChevronUp className="boxTitle" onClick={() => { scroll({ x: 0, y: 0, smooth: true }); this.toggleBox(); }} />
+                            )
+                            }</ScrollTo></div>
                     </div>)
                     : fin.length <= 4
                         ? (<div><div class="boxContent">

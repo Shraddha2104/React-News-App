@@ -14,12 +14,12 @@ class CommentBox extends React.Component {
     }
 
     render() {
-        let comment_styles={
+        let comment_styles = {
             margin: '0 auto',
-            width:'95%',
+            width: '95%',
         }
         return (
-            <div className="commentbox" style={comment_styles}/>
+            <div className="commentbox" style={comment_styles} />
         );
     }
 }
