@@ -3,6 +3,8 @@ A React + Node powered news app using Guardian &amp; NYTimes News API to render 
 
 It was deployed on https://news2056934.wl.r.appspot.com/
 
+[ Node Backend is deployed on https://usc6352156.wl.r.appspot.com/business-nyt with different end-points ]
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Synopsis
