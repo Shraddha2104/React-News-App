@@ -11,7 +11,7 @@ This project was completed as a part of my coursework for the course CSCI 571: W
 
 ## Repository Structure
 
-* **hw8-description.pdf** : contains the assignment description and the functionalities
+* **HW8_Description.pdf** : contains the assignment description and the functionalities
 * **newsapp** : contains the react code
 
 ## Install
