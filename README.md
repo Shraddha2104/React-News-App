@@ -50,7 +50,7 @@ Now open [http://localhost:8080](http://localhost:8080).
   
   
   
-### Tech Stack of this Project:
+## Tech Stack of this Project:
 
 
 * Backend: Node JS
