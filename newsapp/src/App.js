@@ -10,15 +10,10 @@ import AsyncSelect from "react-select/lib/Async";
 import _ from "lodash";
 import { Redirect } from 'react-router-dom';
 import { ToastContainer, toast, Zoom } from 'react-toastify';
-
+import Category from './Category'
 //views
-import Technology from './Technology';
-import World from './World.js';
-import Sports from './Sports';
-import Politics from './Politics';
-import Business from './Business';
+
 import Bookmark from './Bookmark'
-import Home from './Home'
 import Search from './Search';
 export * from "react-router";
 
@@ -38,6 +33,7 @@ class Main extends Component {
       category = 'nyt'
     this.state = {
       checked: chk,
+      
       category: category,
       switch_visible: true,
       bookmarked: false,
@@ -92,7 +88,7 @@ class Main extends Component {
           try {
             fetch("https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=" + inputValue, {
               headers: {
-                "Ocp-Apim-Subscription-Key": "c3410c5aab854b82ae9349b871d2f654"
+                "Ocp-Apim-Subscription-Key": "40eb7ee2a9c347fb8fb8c190a56574cc"
               }
             })
               .then(res => res.json())
@@ -253,7 +249,7 @@ class Main extends Component {
           if (this.state.bookmarked)
             this.setState({ bookmarked: false });
 
-          return <Home {...this.state} func={this.child_to_parent} />
+          return <Category {...this.state} category_type={"home"} func={this.child_to_parent} />
         }} />
 
         <Route path="/world" render={() => {
@@ -261,32 +257,32 @@ class Main extends Component {
           if (this.state.bookmarked)
             this.setState({ bookmarked: false });
 
-          return <World {...this.state} func={this.child_to_parent} />
+          return <Category {...this.state} category_type={"world"} func={this.child_to_parent} />
         }} />
         <Route path="/politics" render={() => {
 
           if (this.state.bookmarked)
             this.setState({ bookmarked: false });
-          return <Politics {...this.state} func={this.child_to_parent} />
+          return <Category {...this.state} category_type={"politics"} func={this.child_to_parent} />
         }} />
         <Route path="/business" render={() => {
 
           if (this.state.bookmarked)
             this.setState({ bookmarked: false });
 
-          return <Business {...this.state} func={this.child_to_parent} />
+          return <Category {...this.state} category_type={"business"} func={this.child_to_parent} />
         }} />
         <Route path="/technology" render={() => {
 
           if (this.state.bookmarked)
             this.setState({ bookmarked: false });
-          return <Technology {...this.state} func={this.child_to_parent} />
+          return <Category {...this.state} category_type={"technology"} func={this.child_to_parent} />
         }} />
         <Route path="/sports" render={() => {
 
           if (this.state.bookmarked)
             this.setState({ bookmarked: false });
-          return <Sports {...this.state} func={this.child_to_parent} />
+          return <Category {...this.state} category_type="sports" func={this.child_to_parent} />
         }} />
         <Route path="/favorites" render={() => {
 
@@ -309,16 +305,4 @@ class Main extends Component {
   }
 };
 export default Main;
-
-
-
-
-
-
-
-
-
-
-
-
 

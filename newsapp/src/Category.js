@@ -5,9 +5,8 @@ import BounceLoader from 'react-spinners/BounceLoader';
 import { Redirect } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Detailed from './Detailed'
-
-//rendering sports news
-class Sports extends Component {
+//rendering business component
+class Category extends Component {
 
   constructor(props) {
     super(props);
@@ -25,7 +24,7 @@ class Sports extends Component {
     this.renderDet1 = this.renderDet1.bind(this);
   }
   linktoArticles(id) {
-
+    
     localStorage.setItem('id', id);
     this.setState({
       showComponent: true,
@@ -34,10 +33,10 @@ class Sports extends Component {
     });
   }
   linktoArticles1(id, sectionId) {
-
+    
     localStorage.setItem('id', id);
     localStorage.setItem('sectionId', sectionId);
-
+    
     this.setState({
       showComponent: true,
       showCards: false,
@@ -46,9 +45,8 @@ class Sports extends Component {
   }
   renderDet(category) {
 
-    console.log('detail')
+   
     var retrievedObject = localStorage.getItem('id');
-
     this.props.func(false);
     if (this.state.showComponent)
       return (<Router>
@@ -57,11 +55,12 @@ class Sports extends Component {
       </Router>);
   }
   renderDet1(category) {
-
+    
     var retrievedObject = localStorage.getItem('id');
     var sectionId = localStorage.getItem('sectionId');
     this.props.func(false);
 
+    
     if (this.state.showComponent)
       return (<Router>
         <Redirect to={"/article/" + retrievedObject} href="/article" />
@@ -69,11 +68,15 @@ class Sports extends Component {
       </Router>);
   }
   componentDidMount() {
-
+  
     this.props.func(true);
+  
     this.setState({ isLoading: true });
     //nyt
-    axios.get('https://usc6352156.wl.r.appspot.com/sports-nyt', {
+    if(this.props.category_type=="home"){
+
+         //nyt
+    axios.get('https://usc6352156.wl.r.appspot.com/nyc-home', {
     })
       .then(res => this.setState({
         g_results2: res.data.results,
@@ -83,8 +86,7 @@ class Sports extends Component {
         error,
         isLoading: false
       }));
-    //guardian news
-    axios.get('https://usc6352156.wl.r.appspot.com/sports-guardian', {
+    axios.get('https://usc6352156.wl.r.appspot.com/guardian-home', {
     })
       .then(res => this.setState({
         g_results1: res.data.response.results,
@@ -94,6 +96,35 @@ class Sports extends Component {
         error,
         isLoading: false
       }));
+    }
+    else{
+
+        axios.get('https://usc6352156.wl.r.appspot.com/'+this.props.category_type+'-nyt', {
+        })
+          .then(res => this.setState({
+            g_results2: res.data.results,
+            isLoading: false
+          }))
+          .catch(error => this.setState({
+            error,
+            isLoading: false
+          }));
+        axios.get('https://usc6352156.wl.r.appspot.com/'+this.props.category_type+'-guardian', {
+        })
+          .then(res => this.setState({
+            g_results1: res.data.response.results,
+            isLoading: false
+          }))
+          .catch(error => this.setState({
+            error,
+            isLoading: false
+    }));
+    
+}
+  
+
+
+
 
   }
   render() {
@@ -129,7 +160,7 @@ class Sports extends Component {
         padding: '5px',
         backgroundColor: 'white',
         margin: '0 auto',
-
+     
         boxShadow: '0 0 5px 0 #C6C4C4',
 
       };
@@ -142,12 +173,14 @@ class Sports extends Component {
         let section_style;
         if (sectionId == 'technology' || sectionId == 'sport') {
           section_style = {
-
+            // width: '12%',
+            // maxWidth:'100px',
             fontSize: '14px',
             backgroundColor: color,
             textAlign: 'center',
             float: 'right',
-
+            // marginRight: '2%',
+            //marginLeft: '75%',
             color: 'black',
             borderRadius: '5px',
 
@@ -155,12 +188,13 @@ class Sports extends Component {
         }
         else {
           section_style = {
-
+            // width: '100px',
+            // maxWidth:'100px',
             fontSize: '14px',
             backgroundColor: color,
             textAlign: 'center',
             float: 'right',
-
+            //  marginRight: '2%',
             color: 'white',
             borderRadius: '5px',
 
@@ -214,7 +248,6 @@ class Sports extends Component {
       if (this.state.showCards)
         return (
           <div>
-
             <div className="guardian-news">{final_articles}<br></br> </div>
           </div>
         );
@@ -229,7 +262,7 @@ class Sports extends Component {
     }
     else {
       let final_articles = []
-
+    
       let img_styles = {
         // margin: '7px',
         width: '100%',
@@ -238,9 +271,6 @@ class Sports extends Component {
         padding: '5px',
         backgroundColor: 'white',
         margin: '0 auto',
-        // marginTop:'5px',
-        // verticalAlign:'middle',
-        // outline: '2px solid #CCC',
         boxShadow: '0 0 5px 0 #C6C4C4',
 
       };
@@ -341,4 +371,4 @@ class Sports extends Component {
   }
 };
 
-export default Sports;  
+export default Category;  
