@@ -57,7 +57,7 @@ Your app is ready to be deployed!
 
 * Backend: Node JS
 * Front-end: React JS
-* Dependencies: Guardian News API , NYTimes News API, CommentBox.io API, Twitter API, Facebook API
+* Dependencies: Guardian News API , NYTimes News API, CommentBox.io API, Twitter API, Facebook API, Bing Autosuggest API
 
 ## Contributing to React-News-App
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
