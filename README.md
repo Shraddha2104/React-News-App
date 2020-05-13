@@ -71,6 +71,8 @@ To contribute to React-News-App, follow these steps:
 
 Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
+***Here is a link to a video showing the complete functioning:*** [https://www.youtube.com/watch?v=IowBaIi6fjE&feature=youtu.be](https://www.youtube.com/watch?v=IowBaIi6fjE&feature=youtu.bee) 
+
 
 <h3 align="center"><b>Developed by <a href="https://github.com/Shraddha2104">Shraddha Shaligram</a>.</b></h1>
 
