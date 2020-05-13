@@ -59,6 +59,18 @@ Your app is ready to be deployed!
 * Front-end: React JS
 * Dependencies: Guardian News API , NYTimes News API, CommentBox.io API, Twitter API, Facebook API
 
+## Contributing to React-News-App
+<!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
+To contribute to React-News-App, follow these steps:
+
+1. Fork this repository.
+2. Create a branch: `git checkout -b <branch_name>`.
+3. Make your changes and commit them: `git commit -m '<commit_message>'`
+4. Push to the original branch: `git push origin https://github.com/Shraddha2104/React-News-App`
+5. Create the pull request.
+
+Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+
 
 <h3 align="center"><b>Developed by <a href="https://github.com/Shraddha2104">Shraddha Shaligram</a>.</b></h1>
 
