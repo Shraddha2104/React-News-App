@@ -156,6 +156,8 @@ class Category extends Component {
   }
   render() {
     var { g_results, n_results, isLoading } = this.state;
+
+    //defining css styles for section
     function setSectionColor(sectionId) {
       var color;
       if (sectionId == "sport" || sectionId == "sports")

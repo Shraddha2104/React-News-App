@@ -12,6 +12,7 @@ import CommentBox from "./CommentBox";
 import ToggleBox from "./ToggleBox";
 import Loader from "./Loader";
 import DetailedShare from "./DetailedShare";
+
 //rendering detailed version of news
 class Detailed extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Detailed extends Component {
     };
     this.bookmarkItem = this.bookmarkItem.bind(this);
     this.deleteBookmarkItem = this.deleteBookmarkItem.bind(this);
-    this.check_dup = this.check_dup.bind(this);
+    this.checkBookmarked = this.checkBookmarked.bind(this);
   }
 
   //styling toasts
@@ -61,7 +62,9 @@ class Detailed extends Component {
       localStorage.setItem("articles", JSON.stringify(articles));
     }
   }
-  check_dup(obj) {
+
+  //check if article is already bookmarked
+  checkBookmarked(obj) {
     var det = {
       category: this.props.category,
       obj: obj,
@@ -115,7 +118,7 @@ class Detailed extends Component {
           n_results: res.data.response,
           isLoading: false,
         });
-        this.check_dup(this.state.n_results);
+        this.checkBookmarked(this.state.n_results);
       })
       .catch((error) =>
         this.setState({
@@ -132,7 +135,7 @@ class Detailed extends Component {
           g_results: res.data.response,
           isLoading: false,
         });
-        this.check_dup(this.state.g_results);
+        this.checkBookmarked(this.state.g_results);
       })
       .catch((error) =>
         this.setState({

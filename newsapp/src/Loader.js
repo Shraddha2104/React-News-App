@@ -1,6 +1,6 @@
 import React from "react";
 import BounceLoader from "react-spinners/BounceLoader";
-
+//rendering loading symbol before displaying news articles
 class Loader extends React.Component {
   componentDidMount() {}
 

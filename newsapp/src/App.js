@@ -35,11 +35,8 @@ class Main extends Component {
       category: category,
       switch_visible: true,
       bookmarked: false,
-      results: [],
       selectedResult: null,
       search_check: false,
-      g_results1: [],
-      g_results2: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.changeSwitchStatus = this.changeSwitchStatus.bind(this);

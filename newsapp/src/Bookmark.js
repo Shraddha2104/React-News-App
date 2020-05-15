@@ -9,14 +9,13 @@ import "react-toastify/dist/ReactToastify.css";
 
 //import views
 import Detailed from "./Detailed";
-import Loader from "./Loader";
+
 //rendering bookmarks
 class Bookmark extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: true,
-      error: null,
       showComponent: false,
       showCards: true,
       category: "guardian",
