@@ -26,6 +26,7 @@ class ToggleBox extends React.Component {
     var { children } = this.props;
     const { opened } = this.state;
 
+    //processing the news description
     var sentence_list = reactElementToJSXString(children);
     var index = sentence_list.indexOf("=");
     sentence_list = sentence_list.substring(index + 2);
@@ -43,6 +44,7 @@ class ToggleBox extends React.Component {
             <div>
               <ScrollTo>
                 {({ scroll }) => (
+                  // scroll to top of the page
                   <FaChevronUp
                     className="boxTitle"
                     onClick={() => {
