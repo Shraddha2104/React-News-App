@@ -13,8 +13,8 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      g_results1: [],
-      g_results2: [],
+      g_results: [], //guardian news
+      n_results: [], //nyt news
       isLoading: false,
       error: null,
       showComponent: false,
@@ -100,7 +100,7 @@ class Search extends Component {
       })
       .then((res) =>
         this.setState({
-          g_results2: res.data.response.docs,
+          n_results: res.data.response.docs,
           isLoading: false,
         })
       )
@@ -116,7 +116,7 @@ class Search extends Component {
       })
       .then((res) =>
         this.setState({
-          g_results1: res.data.response.results,
+          g_results: res.data.response.results,
           isLoading: false,
         })
       )
@@ -136,7 +136,7 @@ class Search extends Component {
         })
         .then((res) =>
           this.setState({
-            g_results2: res.data.response.docs,
+            n_results: res.data.response.docs,
             isLoading: false,
             showCards: true,
           })
@@ -153,7 +153,7 @@ class Search extends Component {
         })
         .then((res) =>
           this.setState({
-            g_results1: res.data.response.results,
+            g_results: res.data.response.results,
             isLoading: false,
             showCards: true,
           })
@@ -174,57 +174,31 @@ class Search extends Component {
     });
   }
   render() {
-    var { g_results1, g_results2 } = this.state;
+    var { g_results, n_results } = this.state;
 
     function setSectionColor(sectionId) {
       var color;
-      if (sectionId == "sport") color = "rgb(243,191,78)";
-      else if (sectionId == "business") color = "rgb(80,157,234)";
-      else if (sectionId == "technology") color = "rgb(206,220,75)";
-      else if (sectionId == "politics") color = "rgb(63,148,137)";
-      else if (sectionId == "world") color = "rgb(124,79,251)";
+      if (sectionId == "sport" || sectionId == "SPORTS")
+        color = "rgb(243,191,78)";
+      else if (sectionId == "business" || sectionId == "BUSINESS")
+        color = "rgb(80,157,234)";
+      else if (sectionId == "technology" || sectionId == "TECHNOLOGY")
+        color = "rgb(206,220,75)";
+      else if (sectionId == "politics" || sectionId == "POLITICS")
+        color = "rgb(63,148,137)";
+      else if (sectionId == "world" || sectionId == "WORLD")
+        color = "rgb(124,79,251)";
       else color = "rgb(110,117,124)";
       return color;
     }
-    function setSectionColorNYT(sectionId) {
-      var color;
-      if (sectionId == "SPORTS") color = "rgb(243,191,78)";
-      else if (sectionId == "BUSINESS") color = "rgb(80,157,234)";
-      else if (sectionId == "TECHNOLOGY") color = "rgb(206,220,75)";
-      else if (sectionId == "POLITICS") color = "rgb(63,148,137)";
-      else if (sectionId == "WORLD") color = "rgb(124,79,251)";
-      else color = "rgb(110,117,124)";
-      return color;
-    }
-    let carder = {
-      margin: "0 auto",
-      padding: "10px",
-      width: "90%",
-    };
-    let cardtext = {
-      margin: "0 auto",
-      paddingLeft: "20px",
-      fontSize: "13px",
-      float: "left",
-    };
-
-    let final_articles = [];
-    for (var i = 0; i < Math.min(5, g_results1.length); i++) {
-      var assets = g_results1[i].blocks.main.elements[0].assets;
-      var img_url;
-      var assets_len = assets.length;
-      if (assets_len == 0)
-        img_url =
-          "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png";
-      else img_url = assets[assets_len - 1].file;
-      var title = g_results1[i].webTitle;
-      var pdate = g_results1[i].webPublicationDate.substring(0, 10);
-      var sectionId = g_results1[i].sectionId;
-      var color = setSectionColor(sectionId);
-      var webUrl = g_results1[i].webUrl;
-      var id = g_results1[i].id;
-      let section_style;
-      if (sectionId == "technology" || sectionId == "sport") {
+    function defineSectionStyles(sectionId) {
+      var section_style;
+      if (
+        sectionId == "technology" ||
+        sectionId == "sport" ||
+        sectionId == "TECHNOLOGY" ||
+        sectionId == "SPORTS"
+      ) {
         section_style = {
           paddingRight: "2%",
           paddingLeft: "2%",
@@ -249,6 +223,37 @@ class Search extends Component {
           borderRadius: "5px",
         };
       }
+      return section_style;
+    }
+    let cardtitle = {
+      margin: "0 auto",
+      padding: "10px",
+      width: "90%",
+    };
+    let cardtext = {
+      margin: "0 auto",
+      paddingLeft: "20px",
+      fontSize: "13px",
+      float: "left",
+    };
+
+    let final_articles = [];
+    for (var i = 0; i < Math.min(5, g_results.length); i++) {
+      var assets = g_results[i].blocks.main.elements[0].assets;
+      var img_url;
+      var assets_len = assets.length;
+      if (assets_len == 0)
+        //provide default image if not returned by API
+        img_url =
+          "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png";
+      else img_url = assets[assets_len - 1].file;
+      var title = g_results[i].webTitle;
+      var pdate = g_results[i].webPublicationDate.substring(0, 10);
+      var sectionId = g_results[i].sectionId;
+      var color = setSectionColor(sectionId);
+      var webUrl = g_results[i].webUrl;
+      var id = g_results[i].id;
+      let section_style = defineSectionStyles(sectionId);
 
       final_articles.push(
         <div className="col-sm-3 search">
@@ -260,10 +265,11 @@ class Search extends Component {
               }.bind(this);
             }.bind(this)(id, "guardian")}
           >
-            <div className="card1-title" style={carder}>
+            <div className="card1-title" style={cardtitle}>
               <b>
                 <i>{title}</i>
               </b>
+              {/* call the share component */}
               <Share url={webUrl} title={title} category={"GUARDIAN"} />
             </div>
             <img
@@ -284,48 +290,23 @@ class Search extends Component {
       );
     }
 
-    if (g_results2.length != 0) {
+    if (n_results.length != 0) {
       for (var i = 0; i < 5; i++) {
-        var multiCheck = g_results2[i].multimedia;
-
+        var multiCheck = n_results[i].multimedia;
+        //missing keys handling
         if (Object.keys(multiCheck).length != 0)
-          img_url =
-            "https://www.nytimes.com/" + g_results2[i].multimedia[0].url;
+          img_url = "https://www.nytimes.com/" + n_results[i].multimedia[0].url;
         else
           img_url =
             "https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg";
 
-        var pdate = g_results2[i].pub_date.substring(0, 10);
-        var sectionId = g_results2[i].sectionId;
+        var pdate = n_results[i].pub_date.substring(0, 10);
+        var sectionId = n_results[i].sectionId;
         if (sectionId === undefined) sectionId = "NONE";
-        var color = setSectionColorNYT(sectionId);
-        var webUrl = g_results2[i].web_url;
-        let section_style;
-        if (sectionId == "TECHNOLOGY" || sectionId == "SPORTS") {
-          section_style = {
-            fontSize: "12px",
-            paddingRight: "2%",
-            paddingLeft: "2%",
-            backgroundColor: color,
-            marginRight: "16px",
-            textAlign: "center",
-            float: "right",
-            color: "black",
-            borderRadius: "5px",
-          };
-        } else {
-          section_style = {
-            paddingRight: "2%",
-            paddingLeft: "2%",
-            fontSize: "12px",
-            backgroundColor: color,
-            marginRight: "16px",
-            textAlign: "center",
-            float: "right",
-            color: "white",
-            borderRadius: "5px",
-          };
-        }
+        var color = setSectionColor(sectionId);
+        var webUrl = n_results[i].web_url;
+        let section_style = defineSectionStyles(sectionId);
+
         final_articles.push(
           <div className="col-sm-3 search">
             <div
@@ -336,13 +317,13 @@ class Search extends Component {
                 }.bind(this);
               }.bind(this)(webUrl, sectionId, "NYT")}
             >
-              <div className="card1-title" style={carder}>
+              <div className="card1-title" style={cardtitle}>
                 <b>
-                  <i>{g_results2[i].headline.main}</i>
+                  <i>{n_results[i].headline.main}</i>
                 </b>
                 <Share
                   url={webUrl}
-                  title={g_results2[i].headline.main}
+                  title={n_results[i].headline.main}
                   category={"NYTimes"}
                 />
               </div>
@@ -367,6 +348,7 @@ class Search extends Component {
     if (this.state.showCards)
       return (
         <div>
+          {/* conditional rendering based on search results length */}
           {final_articles.length ? (
             <div>
               <h1 className="fav">Results</h1>

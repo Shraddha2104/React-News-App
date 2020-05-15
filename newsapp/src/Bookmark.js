@@ -254,7 +254,6 @@ class Bookmark extends Component {
                       return function (event) {
                         this.deleteBookmark(event, i);
                         this.notify(title);
-                        //this.stopPropagation();
                       }.bind(this);
                     }.bind(this)(i)}
                   />
