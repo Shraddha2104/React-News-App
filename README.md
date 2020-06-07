@@ -4,52 +4,41 @@ It was deployed on https://news2056934.wl.r.appspot.com/
 
 ![](https://img.shields.io/badge/commit%20activity-+30-blue) ![]( https://github.com/Shraddha2104/React-News-App/) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) ![](https://img.shields.io/badge/build-passing-brightgreen) ![](https://img.shields.io/badge/contributors-only%201-blue) ![](https://img.shields.io/badge/version-1.0.0-yellow) ![](https://img.shields.io/badge/learned%20a%20lot-yes-blue)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+    <a href="https://news2056934.wl.r.appspot.com/">
+        <img width="600" height="400" src="1.png" alt="News App">
+    </a>
+</p>
 
 ## Synopsis
 
 This project was completed as a part of my coursework for the course CSCI 571: Web Technologies at the University of Southern California, Spring 2020 under Prof. Marco Papa.
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
 ## Screenshots
 
 <h2>Guardian News</h2>
-<img src="1.png"  />
+<img src="1.png" width="700" height="500" />
 
 <h2>NYTimes News</h2>
-<img src="2.png"  />
+<img src="2.png"  width="700" height="500"/>
 
 <h2>Detailed Version of news</h2>
-<img src="3.png"  />
+<img src="3.png" width="700" height="500" />
 
 <h2>Comment Box </h2>
-<img src="4.png"  />
+<img src="4.png"  width="700" height="500"/>
 
 <h2>Bookmarking functionality</h2>
-<img src="5.png"  />
+<img src="5.png" width="700" height="500" />
 
 
 <h2>Sharing news via social media platforms such as Twitter, Facebook and Email</h2>
-<img src="6.png"  />
+<img src="6.png"  width="700" height="500"/>
   
   
   
