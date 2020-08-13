@@ -10,9 +10,6 @@ It was deployed on https://news2056934.wl.r.appspot.com/
     </a>
 </p>
 
-## Synopsis
-
-This project was completed as a part of my coursework for the course CSCI 571: Web Technologies at the University of Southern California, Spring 2020 under Prof. Marco Papa.
 
 ## Why?
 
